@@ -32,9 +32,13 @@ input.onButtonPressed(Button.A, function () {
         basic.showString(".")
     }
 })
+input.onGesture(Gesture.Shake, function () {
+    basic.showString(alleletterSamen)
+})
 input.onButtonPressed(Button.AB, function () {
     let waarMorse: number;
 try {
+
         waarMorse = _py.py_array_index(morse, StringAenB)
         waarAlphabet = alphabet[waarMorse]
         basic.clearScreen()
@@ -42,15 +46,16 @@ try {
         basic.showIcon(IconNames.Heart)
         basic.showNumber(tellerAenB)
         basic.showString("" + waarAlphabet)
-        basic.pause(100)
+        basic.pause(500)
         basic.clearScreen()
-        basic.pause(250)
+        basic.pause(500)
         StringAenB = ""
         tellerAenB = 0
         tellerA = 0
         tellerB = 0
         alleletterSamen += waarAlphabet
         basic.showString(alleletterSamen)
+        alleletterSamenCopy =  alleletterSamen
     }
     catch (_) {
         StringAenB = ""
@@ -76,6 +81,7 @@ input.onButtonPressed(Button.B, function () {
 })
 let StringB = ""
 let StringA = ""
+let alleletterSamenCopy = ""
 let alleletterSamen = ""
 let StringAenB = ""
 let tellerB = 0
@@ -85,6 +91,7 @@ let tellerAenB = 0
 let waarAlphabet = ""
 let elapsed = 0
 let start = 0
+let herhaal = 1
 StringAenB = ""
 tellerB = 1
 tellerA = 1
